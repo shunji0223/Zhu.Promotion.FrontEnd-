@@ -1,25 +1,25 @@
 //
-//  UserApis.swift
+//  UserUpdateApi.swift
 //  MyPromotion
 //
-//  Created by 朱駿璽 on 2021/11/29.
+//  Created by 朱駿璽 on 2021/11/30.
 //
 
 import SwiftUI
 import SwiftyJSON
 
-struct UserApis {
+struct UserUpdateApi {
     
     @EnvironmentObject var msAuthState: MSAuthState
     
     // 登録(非同期)
-    func registrationAsync(userinfo: DataModels,_ after:@escaping (HTTPURLResponse) -> ()) {
+    func updateAsync(userinfo: DataModels,_ after:@escaping (HTTPURLResponse) -> ()) {
         
         let requestUrl = URL(string: "https://xxx/api/users")
         
         let request = NSMutableURLRequest(url: requestUrl!)
         // set the HttpTrigger
-        request.httpMethod = "POST"
+        request.httpMethod = "PUT"
         // set the Header(s)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         // set the Header(s)
@@ -62,10 +62,10 @@ struct UserApis {
         task.resume()
     }
     // 登録(同期)
-    func registrationSync(userinfo: DataModels) -> HTTPURLResponse? {
+    func updateSync(userinfo: DataModels) -> HTTPURLResponse? {
         var result: HTTPURLResponse?
         let semaphore = DispatchSemaphore(value: 0)
-        registrationAsync(userinfo : userinfo) { (response: HTTPURLResponse) in
+        updateAsync(userinfo : userinfo) { (response: HTTPURLResponse) in
             result = response
             semaphore.signal()
         }
