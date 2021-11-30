@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+/// WebAPIのエラー
+enum JsonError: Error {
+    /// トークンが不正
+    case invalidToken
+    /// パラメータが不正
+    case invalidParameters
+    /// ユーザが見つからない
+    case userNotFound
+}

@@ -1,0 +1,30 @@
+PODS:
+  - JWTDecode (2.6.3)
+  - MSAL (1.1.24):
+    - MSAL/app-lib (= 1.1.24)
+  - MSAL/app-lib (1.1.24)
+  - Resolver (1.5.0)
+  - SwiftyJSON (5.0.1)
+
+DEPENDENCIES:
+  - JWTDecode
+  - MSAL
+  - Resolver
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - JWTDecode
+    - MSAL
+    - Resolver
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  JWTDecode: 33e5e26e5ddbd21b2065820894c08fef0cad9509
+  MSAL: fc6dce17fe34cd14d711651c67f46bff5429ad2d
+  Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+
+PODFILE CHECKSUM: b075a46a8eea4540b95a6f32326a684c5e0293e2
+
+COCOAPODS: 1.11.2

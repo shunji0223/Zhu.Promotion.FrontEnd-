@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct MyPromotionApp: App {
+struct MyPromotionAppGate: App {
     @Environment(\.scenePhase) var scenePhase
             
     private let msAuthState: MSAuthState = resolve()
@@ -17,7 +17,7 @@ struct MyPromotionApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NoneLoginView()
                 .onAppear {
                     msAuthAdapter.setupMSAuthentication()
                     msAuthAdapter.loadCurrentAccount()

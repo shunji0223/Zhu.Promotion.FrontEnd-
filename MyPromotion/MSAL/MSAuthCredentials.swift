@@ -8,6 +8,11 @@
 import Foundation
 
 struct MSAuthCredentials{
-    static let applicationId = "ac847304-2c82-42fc-99a3-abce40f62ee5"  // AzureAdB2C clientId
-    static let directoryId = "8201ffd5-bc3a-4511-bb8e-c85c92005e0d" // AzureAdB2C tenantId
+    static let applicationId = ""  // AzureAdB2C clientId
+    static let directoryId = "" // AzureAdB2C tenantId
+    static let kEndpoint = "https://%@/tfp/%@/%@" //AzureAdB2C Endpoint
+    static let kTenantName = "" // Your tenant name
+    static let kAuthorityHostName = "" // Your authority host name
+    static let kSignupOrSigninPolicy = "" // Your userflow policy
+    static let msScopes: [String] = [""] // Your Api access Url
 }

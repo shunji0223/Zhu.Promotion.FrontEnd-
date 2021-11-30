@@ -1,0 +1,6 @@
+framework module Pods_MyPromotionTests {
+  umbrella header "Pods-MyPromotionTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

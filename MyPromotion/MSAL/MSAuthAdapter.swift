@@ -13,42 +13,17 @@ import SwiftUI
 
 class MSAuthAdapter {
     
-    /*
-    private let msGraphEndpoint = "https://ZhuPerson.onmicrosoft.com/b2cbdec9-255d-4cdd-a183-1ef912b686c6/Api"
-    private let msAuthority: String = "https://zhuperson.onmicrosoft.com/\(MSAuthCredentials.directoryId)"
-    private let msRedirectUri = "msauth.\(Bundle.main.bundleIdentifier!)://auth"
-    private let msScopes: [String] = ["https://ZhuPerson.onmicrosoft.com/b2cbdec9-255d-4cdd-a183-1ef912b686c6/Api/read"]
-
-    private let msAuthState: MSAuthState = resolve()
-
-    private var accessToken = ""
-    private var applicationContext: MSALPublicClientApplication?
-     */
     private let msAuthState: MSAuthState = resolve()
     private var webViewParamaters: MSALWebviewParameters?
-    private let msScopes: [String] = ["https://mcbetab2bpoc.onmicrosoft.com/ac847304-2c82-42fc-99a3-abce40f62ee5/api/Files.Read"]
     private var accessToken = ""
     private var applicationContext: MSALPublicClientApplication?
-    
-    let kEndpoint = "https://%@/tfp/%@/%@"
-    //azureストレージから取得するようにやってみる
-    let kTenantName = "mcbetab2bpoc.onmicrosoft.com" // Your tenant name
-    let kAuthorityHostName = "mcbetab2bpoc.b2clogin.com" // Your authority host name
-    let kClientID = "ac847304-2c82-42fc-99a3-abce40f62ee5" // Your client ID from the portal when you created your application
-    let kRedirectUri = "msauth.com.microsoft.identitysample.MSALiOS://auth" // Your application's redirect URI
-    let kSignupOrSigninPolicy = "B2C_1_alt_enter_01" // Your signup and sign-in policy you created in the portal
-    let kEditProfilePolicy = "B2C_1_alt_enter_01" // Your edit policy you created in the portal
-    let kResetPasswordPolicy = "B2C_1_alt_enter_01" // Your reset password policy you created in the portal
-    let kGraphURI = "https://mcbetab2bpoc.onmicrosoft.com/ac847304-2c82-42fc-99a3-abce40f62ee5/api" // This is your backend API that you've configured to accept your app's tokens
-    let kScopes: [String] = ["https://mcbetab2bpoc.onmicrosoft.com/ac847304-2c82-42fc-99a3-abce40f62ee5/api/Files.Read"] // This is a scope that you've configured your backend API to look for.
-    
     
     private var application: MSALPublicClientApplication!
     
     init() {
         do {
-            let siginPolicyAuthority = try self.getAuthority(forPolicy: self.kSignupOrSigninPolicy)
-            let pcaConfig = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: siginPolicyAuthority)
+            let siginPolicyAuthority = try self.getAuthority(forPolicy: MSAuthCredentials.kSignupOrSigninPolicy)
+            let pcaConfig = MSALPublicClientApplicationConfig(clientId: MSAuthCredentials.applicationId, redirectUri: nil, authority: siginPolicyAuthority)
             pcaConfig.knownAuthorities = [siginPolicyAuthority]
             self.application = try MSALPublicClientApplication(configuration: pcaConfig)
         } catch {
@@ -67,10 +42,10 @@ class MSAuthAdapter {
     func callGraphAPI(dataset: DataModels) {
         
         do {
-            let authority = try self.getAuthority(forPolicy: self.kSignupOrSigninPolicy)
+            let authority = try self.getAuthority(forPolicy: MSAuthCredentials.kSignupOrSigninPolicy)
             //guard let applicationContext = self.applicationContext else { return }
             guard let webViewParameters = self.webViewParamaters else { return }
-            let parameters = MSALInteractiveTokenParameters(scopes: msScopes, webviewParameters: webViewParameters)
+            let parameters = MSALInteractiveTokenParameters(scopes: MSAuthCredentials.msScopes, webviewParameters: webViewParameters)
             parameters.promptType = .selectAccount
             parameters.authority = authority
 
@@ -178,7 +153,7 @@ class MSAuthAdapter {
     }
     
     func getAuthority(forPolicy policy: String) throws -> MSALB2CAuthority {
-        guard let authorityURL = URL(string: String(format: self.kEndpoint, self.kAuthorityHostName, self.kTenantName, policy)) else {
+        guard let authorityURL = URL(string: String(format: MSAuthCredentials.kEndpoint, MSAuthCredentials.kAuthorityHostName, MSAuthCredentials.kTenantName, policy)) else {
             throw NSError(domain: "SomeDomain",
                           code: 1,
                           userInfo: ["errorDescription": "Unable to create authority URL!"])
@@ -285,7 +260,9 @@ class MSAuthAdapter {
 }
 
 private func topViewController() -> UIViewController? {
-    let window = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
+    let scenes = UIApplication.shared.connectedScenes
+    let windowScene = scenes.first as? UIWindowScene
+    let window = windowScene?.windows.filter { $0.isKeyWindow }.first
     let rootVC = window?.rootViewController
     return rootVC?.top()
 }

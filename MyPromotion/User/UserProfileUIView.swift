@@ -111,7 +111,7 @@ struct UserProfileUIView: View {
                                     if self.showDatePicker {
                                         Button(action:{
                                             self.showDatePicker = false
-                                            self.dateOfBirthStr = DateConvertors().dateConvert(date: self.dateOfBirth)
+                                            self.dateOfBirthStr = DateConvertors().dateToStringConvert(date: self.dateOfBirth)
                                         }){
                                             Text("Done")
                                         }
@@ -133,6 +133,7 @@ struct UserProfileUIView: View {
                                 HStack{
                                     TextField("📧", text: $mailAddress)
                                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .keyboardType(.emailAddress)
                                         .padding(5)
                                 }
                             }
@@ -147,6 +148,7 @@ struct UserProfileUIView: View {
                                 HStack{
                                     TextField("☎️", text: $mobilePhoneNumber)
                                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .keyboardType(.phonePad)
                                         .padding(5)
                                 }
                             }
@@ -163,6 +165,7 @@ struct UserProfileUIView: View {
                                 HStack{
                                     TextField("〒", text: $zip)
                                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .keyboardType(.numberPad)
                                         .padding(5)
                                 }
                             }
@@ -272,6 +275,7 @@ struct UserProfileUIView: View {
                             userInfo.streetAddress2 = self.streetAddress2
                             self.isActive = true
                         }
+                        .disabled(self.familyName.isEmpty || self.givenName.isEmpty)
                         .fullScreenCover(isPresented: self.$isActive){
                             UserProfileConfirmUIView()
                         }
@@ -293,7 +297,7 @@ struct UserProfileUIView: View {
 
 struct UserProfileUIView_Previews: PreviewProvider {
     static var previews: some View {
-        UserRegistrationUIView()
+        UserProfileUIView()
             .environmentObject(DataModels())
     }
 }
