@@ -12,7 +12,7 @@ struct UserUpdateApi {
     
     @EnvironmentObject var msAuthState: MSAuthState
     
-    // 登録(非同期)
+    // 更新(非同期)
     func updateAsync(userinfo: DataModels,_ after:@escaping (HTTPURLResponse) -> ()) {
         
         let requestUrl = URL(string: "https://xxx/api/users")
@@ -61,7 +61,7 @@ struct UserUpdateApi {
         })
         task.resume()
     }
-    // 登録(同期)
+    // 更新(同期)
     func updateSync(userinfo: DataModels) -> HTTPURLResponse? {
         var result: HTTPURLResponse?
         let semaphore = DispatchSemaphore(value: 0)
