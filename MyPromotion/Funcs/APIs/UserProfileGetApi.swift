@@ -47,6 +47,7 @@ struct UserProfileGetApi {
                 }
                 
                 if let response = response as? HTTPURLResponse {
+                    print("get:\(response)")
                     after(response)
                 }
             })

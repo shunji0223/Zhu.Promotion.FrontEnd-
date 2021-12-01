@@ -13,9 +13,9 @@ struct UserUpdateApi {
     @EnvironmentObject var msAuthState: MSAuthState
     
     // 更新(非同期)
-    func updateAsync(userinfo: DataModels,_ after:@escaping (HTTPURLResponse) -> ()) {
+    func UpdateAsync(userinfo: DataModels,_ after:@escaping (HTTPURLResponse) -> ()) {
         
-        let requestUrl = URL(string: "https://xxx/api/users")
+        let requestUrl = URL(string: "https://xxx/api/users/\(userinfo.userId)")
         
         let request = NSMutableURLRequest(url: requestUrl!)
         // set the HttpTrigger
@@ -54,7 +54,7 @@ struct UserUpdateApi {
             print(request)
             DispatchQueue.global().async {
                 if let response = response as? HTTPURLResponse {
-                    print("registration:\(response.statusCode)")
+                    print("update:\(response.statusCode)")
                     after(response)
                 }
             }
@@ -62,10 +62,10 @@ struct UserUpdateApi {
         task.resume()
     }
     // 更新(同期)
-    func updateSync(userinfo: DataModels) -> HTTPURLResponse? {
+    func UpdateSync(userinfo: DataModels) -> HTTPURLResponse? {
         var result: HTTPURLResponse?
         let semaphore = DispatchSemaphore(value: 0)
-        updateAsync(userinfo : userinfo) { (response: HTTPURLResponse) in
+        UpdateAsync(userinfo : userinfo) { (response: HTTPURLResponse) in
             result = response
             semaphore.signal()
         }

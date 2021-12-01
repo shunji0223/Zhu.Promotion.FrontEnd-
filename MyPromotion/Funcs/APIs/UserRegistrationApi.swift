@@ -13,7 +13,7 @@ struct UserRegistrationApi {
     @EnvironmentObject var msAuthState: MSAuthState
     
     // 登録(非同期)
-    func registrationAsync(userinfo: DataModels,_ after:@escaping (HTTPURLResponse) -> ()) {
+    func RegistrationAsync(userinfo: DataModels, _ after:@escaping (HTTPURLResponse) -> ()) {
         
         let requestUrl = URL(string: "https://xxx/api/users")
         
@@ -62,10 +62,10 @@ struct UserRegistrationApi {
         task.resume()
     }
     // 登録(同期)
-    func registrationSync(userinfo: DataModels) -> HTTPURLResponse? {
+    func RegistrationSync(userinfo: DataModels) -> HTTPURLResponse? {
         var result: HTTPURLResponse?
         let semaphore = DispatchSemaphore(value: 0)
-        registrationAsync(userinfo : userinfo) { (response: HTTPURLResponse) in
+        RegistrationAsync(userinfo : userinfo) { (response: HTTPURLResponse) in
             result = response
             semaphore.signal()
         }

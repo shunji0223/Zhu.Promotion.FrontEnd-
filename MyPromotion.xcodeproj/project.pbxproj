@@ -31,6 +31,7 @@
 		F03AD049275508D300975664 /* JsonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03AD048275508D300975664 /* JsonErrors.swift */; };
 		F03AD04B27565EBA00975664 /* UserUpdateApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03AD04A27565EBA00975664 /* UserUpdateApi.swift */; };
 		F06A4A5027577FD600CBFCE9 /* UserProfileGetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A4A4F27577FD600CBFCE9 /* UserProfileGetApi.swift */; };
+		F06A4A522757853800CBFCE9 /* UserDeleteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A4A512757853800CBFCE9 /* UserDeleteApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		F03AD048275508D300975664 /* JsonErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonErrors.swift; sourceTree = "<group>"; };
 		F03AD04A27565EBA00975664 /* UserUpdateApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateApi.swift; sourceTree = "<group>"; };
 		F06A4A4F27577FD600CBFCE9 /* UserProfileGetApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileGetApi.swift; sourceTree = "<group>"; };
+		F06A4A512757853800CBFCE9 /* UserDeleteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeleteApi.swift; sourceTree = "<group>"; };
 		FC6423C46C95DB923D5CC86F /* Pods_MyPromotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPromotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -255,6 +257,7 @@
 				F06A4A4F27577FD600CBFCE9 /* UserProfileGetApi.swift */,
 				F03AD0452754FF3700975664 /* UserRegistrationApi.swift */,
 				F03AD04A27565EBA00975664 /* UserUpdateApi.swift */,
+				F06A4A512757853800CBFCE9 /* UserDeleteApi.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				F029D21427524F5100329E78 /* MyPromotionAppGate.swift in Sources */,
 				F03AD0462754FF3700975664 /* UserRegistrationApi.swift in Sources */,
 				F029D2462752553900329E78 /* MSAuthAdapter.swift in Sources */,
+				F06A4A522757853800CBFCE9 /* UserDeleteApi.swift in Sources */,
 				F03AD049275508D300975664 /* JsonErrors.swift in Sources */,
 				F06A4A5027577FD600CBFCE9 /* UserProfileGetApi.swift in Sources */,
 				F029D2422752552200329E78 /* MSAuthCredentials.swift in Sources */,
