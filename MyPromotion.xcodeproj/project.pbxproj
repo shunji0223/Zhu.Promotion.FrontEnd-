@@ -32,6 +32,7 @@
 		F03AD04B27565EBA00975664 /* UserUpdateApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03AD04A27565EBA00975664 /* UserUpdateApi.swift */; };
 		F06A4A5027577FD600CBFCE9 /* UserProfileGetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A4A4F27577FD600CBFCE9 /* UserProfileGetApi.swift */; };
 		F06A4A522757853800CBFCE9 /* UserDeleteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A4A512757853800CBFCE9 /* UserDeleteApi.swift */; };
+		F06A4A5427578FF700CBFCE9 /* UserDeleteUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A4A5327578FF700CBFCE9 /* UserDeleteUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		F03AD04A27565EBA00975664 /* UserUpdateApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateApi.swift; sourceTree = "<group>"; };
 		F06A4A4F27577FD600CBFCE9 /* UserProfileGetApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileGetApi.swift; sourceTree = "<group>"; };
 		F06A4A512757853800CBFCE9 /* UserDeleteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeleteApi.swift; sourceTree = "<group>"; };
+		F06A4A5327578FF700CBFCE9 /* UserDeleteUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeleteUIView.swift; sourceTree = "<group>"; };
 		FC6423C46C95DB923D5CC86F /* Pods_MyPromotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPromotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -221,6 +223,7 @@
 				F03AD03227525B4700975664 /* Models */,
 				F029D23F2752504200329E78 /* UserProfileUIView.swift */,
 				F03AD0422754E9B700975664 /* UserProfileConfirmUIView.swift */,
+				F06A4A5327578FF700CBFCE9 /* UserDeleteUIView.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			files = (
 				F03AD0432754E9B700975664 /* UserProfileConfirmUIView.swift in Sources */,
 				F03AD036275328FF00975664 /* GenderModel.swift in Sources */,
+				F06A4A5427578FF700CBFCE9 /* UserDeleteUIView.swift in Sources */,
 				F029D2442752552E00329E78 /* MSAuthState.swift in Sources */,
 				F03AD03427525B5A00975664 /* DataModels.swift in Sources */,
 				F03AD03E2753A2A500975664 /* ButtonStyles.swift in Sources */,
